@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Index</title>
+</head>
+<body>
+<style>
+table {
+            border: 1px solid black;
+            padding: 20px
+        }
+</style>
+	<form th:action="@{/mahasiswa/save}" method="post">
+		<table>
+			<caption>
+				<h2>Form Mahasiswa</h2>
+			</caption>
+			<input type="hidden" name="id" th:value="${mahasiswaEdit.id}">
+			<tr>
+				<td>NIM</td>
+				<td>:</td>
+				<td><input type="text" size="25" name="nim" th:value="${mahasiswaEdit.nim}"></td>
+			</tr>
+			<tr>
+				<td>Nama Mahasiswa</td>
+				<td>:</td>
+				<td><input type="text" size="25" name="namaMahasiswa" th:value="${mahasiswaEdit.namaMahasiswa}"></td>
+			</tr>
+			<tr>
+				<td>Jenis Kelamin</td>
+				<td>:</td>
+					<td><input type="radio" name="jenisKelamin" th:value="${mahasiswaEdit.jenisKelamin}"><input
+					type="radio" name="jenisKelamin" value="Wanita">Wanita</td>
+			</tr>
+			<tr>
+				<td>Alamat</td>
+				<td>:</td>
+				<td><input type="text" size="25" name="alamat" th:value="${mahasiswaEdit.alamat}"></td>
+			</tr>
+			<tr>
+				<td>Nama Jurusan</td>
+				<td>:</td>
+				<td><select name="jurusanId" >
+					<option th:each="item:${jurList}" th:value="${item.id}" th:text="${item.namaJurusan}">Pilih Jurusan</option>
+				</select> </td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td>:</td>
+				<td>
+				<select name="status" th:value="${mahasiswaEdit.status}">
+				<option value="AKTIF">AKTIF</option>
+  				<option value="NONAKTIF">NONAKTIF</option>
+  				</select></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Submit"> 
+				<input type="reset" value="Reset">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

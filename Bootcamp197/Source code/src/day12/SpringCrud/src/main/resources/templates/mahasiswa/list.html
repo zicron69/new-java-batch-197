@@ -1,0 +1,54 @@
+<html>
+<body>
+	<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 5px;
+	text-align: left;
+}
+</style>
+	<table>
+		<caption>
+			<h2>Data Mahasiswa</h2>
+		</caption>
+		<thead>
+			<tr>
+				<th>NIM</th>
+				<th>Nama</th>
+				<th>Jenis Kelamin</th>
+				<th>Alamat</th>
+				<th>Kode Jurusan</th>
+				<th>Nama Jurusan</th>
+				<th>Status</th>
+				<th>Ubah</th>
+				<th>Hapus</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item:${mhsList}">
+				<td th:text="${item.nim}"></td>
+				<td th:text="${item.namaMahasiswa}"></td>
+				<td th:text="${item.jenisKelamin}"></td>
+				<td th:text="${item.alamat}"></td>
+				<td th:text="${item.jurusan.kodeJurusan}"></td>
+				<td th:text="${item.jurusan.namaJurusan}"></td>
+				<td th:text="${item.status}"></td>
+				<td><a th:href="@{edit/{id}(id=${item.id})}">ubah</a></td>
+				<td><a th:href="@{hapus/{id}(id=${item.id})}">Hapus</a></td>
+			</tr>
+
+		</tbody>
+	</table>
+<tr>
+			<td><a href="http://localhost:8089/home/index">Home</a></td>
+		</tr>
+		<tr>
+			<td><a href="http://localhost:8089/mahasiswa">Tambah Data
+					Lagi</a></td>
+		</tr>
+</body>
+</html>

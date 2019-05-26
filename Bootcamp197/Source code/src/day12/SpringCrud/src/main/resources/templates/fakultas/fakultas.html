@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Index</title>
+</head>
+<body>
+	<style>
+table {
+	border: 1px solid black;
+	padding: 20px
+}
+</style>
+	<form th:action="@{/fakultas/save}" method="post">
+		<table>
+			<caption>
+				<h2>Form Fakultas</h2>
+			</caption>
+			<tr>
+				<td>Kode Fakultas</td>
+				<td>:</td>
+				<td><input type="text" size="25" name="kodeFakultas"></td>
+			</tr>
+			<tr>
+				<td>Nama Fakultas</td>
+				<td>:</td>
+				<td><input type="text" size="25" name="namaFakultas"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Submit"> <input
+					type="reset" value="Reset"></td>
+			</tr>
+
+		</table>
+		<tr>
+			<td><a href="http://localhost:8089/home/index">Home</a></td>
+		</tr>
+	</form>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Mahasiswa</title>
+</head>
+<body>
+	<style>
+table {
+	border: 1px solid black;
+	padding: 20px
+}
+</style>
+	<form th:action="@{/mahasiswa/save}" method="post">
+		<table>
+			<caption>
+				<h2>Form Mahasiswa</h2>
+			</caption>
+			<tr>
+				<td>NIM</td>
+				<td>:</td>
+				<td><input type="text" size="25"  name="nim" placeholder="NIM"></td>
+			</tr>
+			<tr>
+				<td>Nama Lengkap</td>
+				<td>:</td>
+				<td><input type="text" size="25" name="namaMahasiswa" placeholder="Nama Lengkap"></td>
+			</tr>
+			<tr>
+				<td>Jenis Kelamin</td>
+				<td>:</td>
+				<td><input type="radio" name="jenisKelamin" value="Pria" checked>Pria <input
+					type="radio" name="jenisKelamin" value="Wanita">Wanita</td>
+			</tr>
+			<tr>
+				<td>Alamat</td>
+				<td>:</td>
+				<td><textarea rows="4" cols="20" name="alamat"></textarea></td>
+			</tr>
+			<tr>
+				<td>Jurusan</td>
+				<td>:</td>
+				<td><select name="jurusanId">
+						<option th:each="item:${jurList}" th:value="${item.id}"
+							th:text="${item.namaJurusan}">Pilih Jurusan</option>
+				</select></td>
+			<tr>
+				<td>Status</td>
+				<td>:</td>
+				<td><select name="status">
+						<option value="AKTIF">AKTIF</option>
+						<option value="NONAKTIF">NONAKTIF</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Submit"> <input
+					type="reset" value="Reset"></td>
+			</tr>
+
+		</table>
+		<tr>
+			<td><a href="http://localhost:8089/home/index">Home</a></td>
+		</tr>
+
+	</form>
+</body>
+</html>
